@@ -1,34 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import first from '../../assets/1.png';
-import second from '../../assets/2.png';
-import third from '../../assets/3.png';
-import {  FaCalendar} from 'react-icons/fa';
+import first from '../../../assets/1.png';
+import second from '../../../assets/2.png';
+import third from '../../../assets/3.png';
 import moment from 'moment';
+import {  FaCalendar} from 'react-icons/fa';
 
-const LeftNav = () => {
-    const [categories, setCategories] = useState([]);
-
-    useEffect(()=>{
-        fetch('http://localhost:5000/categories')
-        .then(res => res.json())
-        .then(data => setCategories(data))
-        .catch(error =>console.log(error))
-    },[])
-
+const EditorsInsights = () => {
     return (
-        <div>
-            <h2>All Category</h2>
-            <div className='ps-4'>
-                {
-                    categories.map(category => <p key= {category.id}>
-                        <Link to={`/category/${category.id}`} className='text-decoration-none text-black'>{category.name}</Link>
-                    </p>)
-                }
-            </div>
-
-            <Row xs={1} className="g-4 mt-2">
+        <div className="g-4 mt-4">
+              <h2>Editors Insight</h2>
+              <Row xs={1} md={2} lg={3} className="g-4 mt-2">
     
     <Col >
       <Card>
@@ -69,7 +51,8 @@ const LeftNav = () => {
 
               </Row>
         </div>
+       
     );
 };
 
-export default LeftNav;
+export default EditorsInsights;
